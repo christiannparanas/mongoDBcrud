@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head -->
+<%- include('./partials/head.ejs') %>
+
+<body>
+   <div id="app">
+      <div class="title"><%= blog.title %></div>
+      <div class="snippet"><%= blog.snippet %></div>
+      <div class="body"><%= blog.body %></div>
+   </div>
+   <br>
+   <a class="delete" data-doc="<%= blog._id %>">delete post</a>
+
+   <script>
+      const deletepost = document.querySelector('a.delete');
+
+      deletepost.addEventListener('click', (e) => {
+         // putting the a variable by id of the item that have been clicked
+         const endpoint = `/blogs/${deletepost.dataset.doc}`;
+
+         // this will throw the id of the item you want to delete
+         // using fetch api
+         // endpoint or where to fetch
+         fetch(endpoint, {
+            method: 'DELETE'
+         })
+         .then((response) => { response.json() })
+         .then((data) => window.location.href = data.redirect)
+         .catch((err) => console.log(err))
+      })
+   </script>
+</body>
+</html>
