@@ -19,44 +19,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then((result) => console.log('connected to db')) // listen to 3000 if the connection is established
 .catch((err) => console.log(err))
 
-// // mongoose and mongo sandbox routes
-// app.get('/add-blog', (req, res) => {
-//    const blog = new Blog({
-//       title: "Hi Thea", 
-//       snippet: "She is my Wife",
-//       body: "Hello"
-//    })
-
-//    // save this to the database
-//    blog.save()
-//       .then((result) => { res.send(result) })
-//       .catch((err) => { console.log(err) })
-// })
-
-// // find a single collection or blog
-// app.get('/single-blog', (req, res) => {
-//    // find blog by id
-//    Blog.findById("5f1717a207be753448588da7")
-//       .then((result) => {
-//          res.send(result)
-//       })
-//       .catch((err) => {
-//          console.log(err)
-//       })
-// });
-
-// // retrieve all colections on the db
-// app.get('/all-blogs', (req, res) => {
-//    // this will get all the collection on the db
-//    Blog.find()
-//       .then((result) => {
-//          res.send(result);
-//       })
-//       .catch((err) => {
-//          console.log(err)
-//       })
-// });
-
 
 // listen - so that we can connect to localhost:3000
 app.listen(3000)
